@@ -4,6 +4,30 @@
     box-sizing: border-box; 
 }
 
+ul, li {
+    list-style: none;
+}
+
+.navigation {
+    padding: 20px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+}
+
 .navigation-logo {
+    align-items: center;
+    display: flex;
+}
+
+.navigation-logo-img {
     width: 150px;
+    border-radius: 50%;
+}
+
+.navigation-links {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-between;
 }
