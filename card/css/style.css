@@ -1,21 +1,47 @@
+/* ===============================================
+   RESET CSS - Normalizzazione degli stili di base
+   =============================================== */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    /* box-sizing: border-box assicura che padding e border
+       siano inclusi nella larghezza/altezza totale dell'elemento */
+    box-sizing: border-box;
 }
 
+/* Rimuove i bullet point dalle liste */
 ul, li {
     list-style: none;
 }
 
 
+/* ===============================================
+   CONTAINER PRINCIPALE - Centra la card nella pagina
+   =============================================== */
+
 .container {
     width: 100%;
+    /* 100vh = 100% dell'altezza del viewport (schermo) */
     height: 100vh;
+
+    /* FLEXBOX: Trasforma questo container in un FLEX-CONTAINER
+       Il figlio diretto (.card) diventa automaticamente FLEX-ITEM */
     display: flex;
+
+    /* JUSTIFY-CONTENT: Centra la card lungo il MAIN AXIS (orizzontale)
+       center = posiziona la card al centro orizzontalmente */
     justify-content: center;
+
+    /* ALIGN-ITEMS: Centra la card lungo il CROSS AXIS (verticale)
+       center = posiziona la card al centro verticalmente
+       RISULTATO: La card è perfettamente centrata nella pagina! */
     align-items: center;
 }
+
+/* ===============================================
+   CARD PRINCIPALE - Layout orizzontale immagine + contenuto
+   =============================================== */
 
 .card {
     padding: 50px;
@@ -24,31 +50,76 @@ ul, li {
     border-radius: 30px;
     width: 800px;
 
+    /* FLEXBOX: Anche la card diventa un FLEX-CONTAINER
+       I suoi figli diretti (.card-image-container e .card-content)
+       diventano FLEX-ITEMS disposti orizzontalmente
+
+       NOTA: flex-direction non specificata = row (default)
+       Quindi: immagine a sinistra, contenuto a destra */
     display: flex;
 }
 
+/* ===============================================
+   CONTAINER IMMAGINE - 1/3 della larghezza, centrato verticalmente
+   =============================================== */
+
 .card .card-image-container {
+    /* margin auto centra l'elemento lungo il CROSS AXIS (verticale)
+       Alternativa a align-items: center sul container padre */
     margin-top: auto;
     margin-bottom: auto;
+
+    /* Calcola 1/3 della larghezza disponibile (circa 33.33%) */
     width: calc(100% / 3);
+
+    /* PROPRIETÀ FLEXBOX AVANZATA:
+       flex-shrink: 0 impedisce che questo elemento si rimpicciolisca
+       quando lo spazio è limitato. L'immagine mantiene sempre la sua dimensione! */
     flex-shrink: 0;
 }
 
+/* Immagine responsiva - occupa tutto lo spazio del suo container */
 .card-image-container .card-image {
     width: 100%;
 }
 
+/* ===============================================
+   CONTENUTO CARD - Layout verticale del testo
+   =============================================== */
+
 .card .card-content {
     padding: 0 40px;
+
+    /* FLEXBOX: Il contenuto diventa un FLEX-CONTAINER
+       I suoi figli diretti (.card-title e .card-descriptions)
+       diventano FLEX-ITEMS */
     display: flex;
+
+    /* FLEX-DIRECTION: Cambia il MAIN AXIS da orizzontale a verticale!
+       column = gli elementi si dispongono dall'alto al basso
+       Ora justify-content agisce verticalmente e align-items orizzontalmente */
     flex-direction: column;
+
+    /* JUSTIFY-CONTENT: Centra il contenuto lungo il MAIN AXIS (ora verticale)
+       center = titolo e descrizioni centrati verticalmente nel loro spazio */
     justify-content: center;
 }
 
+/* ===============================================
+   DESCRIZIONI - Layout orizzontale dei paragrafi
+   =============================================== */
+
 .card .card-content .card-descriptions {
+    /* FLEXBOX: Anche le descrizioni diventano un FLEX-CONTAINER
+       I suoi figli diretti (i paragrafi .card-description-single)
+       diventano FLEX-ITEMS disposti orizzontalmente
+
+       NOTA: flex-direction non specificata = row (default)
+       I paragrafi si affiancano da sinistra a destra */
     display: flex;
 }
 
+/* Styling per ogni singolo paragrafo */
 .card-descriptions .card-description-single {
     padding: 5px;
 }

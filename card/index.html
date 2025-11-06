@@ -10,27 +10,92 @@
 </head>
 
 <body>
+    <!--
+    ===============================================
+    CARD PROFILE - Esempio Avanzato di Flexbox Nesting
+    ===============================================
 
+    Questo esempio dimostra il NESTING di più container Flexbox:
+
+    GERARCHIA COMPLETA:
+    1. .container (FLEX-CONTAINER) - Centra la card nella pagina
+       └── .card (FLEX-ITEM + FLEX-CONTAINER) - Layout orizzontale
+           ├── .card-image-container (FLEX-ITEM) - 1/3 larghezza
+           │   └── .card-image (normale)
+           └── .card-content (FLEX-ITEM + FLEX-CONTAINER) - Layout verticale
+               ├── .card-title (FLEX-ITEM)
+               └── .card-descriptions (FLEX-ITEM + FLEX-CONTAINER) - Layout orizzontale
+                   ├── .card-description-single (FLEX-ITEM)
+                   └── .card-description-single (FLEX-ITEM)
+
+    CONCETTI DIMOSTRATI:
+    - Centratura perfetta con justify-content + align-items
+    - Cambio di direzione con flex-direction: column
+    - Controllo delle dimensioni con flex-shrink: 0
+    - Multiple flex-container annidati
+    -->
+
+    <!--
+    🔥 PRIMO FLEX-CONTAINER - Centratura nella pagina
+    Questo div occupa tutto lo schermo (100vw x 100vh) e
+    centra la card sia orizzontalmente che verticalmente
+    -->
     <div class="container">
+
+        <!--
+        🔥 SECONDO FLEX-CONTAINER (Layout orizzontale)
+        Questo div è un FLEX-ITEM del container precedente
+        MA diventa anche FLEX-CONTAINER per i suoi figli:
+        - Immagine a sinistra (1/3 dello spazio)
+        - Contenuto a destra (2/3 dello spazio)
+        -->
         <div class="card">
+
+            <!--
+            📷 FLEX-ITEM: Container dell'immagine
+            - Occupa 1/3 della larghezza della card
+            - flex-shrink: 0 mantiene sempre questa dimensione
+            - margin: auto lo centra verticalmente
+            -->
             <div class="card-image-container">
-                <img src="./imgs/cat.png" alt="" class="card-image" />
+                <img src="./imgs/cat.png" alt="Foto di Felix il gatto" class="card-image" />
             </div>
+
+            <!--
+            🔥 TERZO FLEX-CONTAINER (Layout verticale)
+            Questo div è un FLEX-ITEM della card
+            MA diventa anche FLEX-CONTAINER con flex-direction: column
+            Dispone il titolo sopra e le descrizioni sotto
+            -->
             <div class="card-content">
+
+                <!-- FLEX-ITEM: Titolo della card -->
                 <h1 class="card-title">
                     <span>Felix</span>
                 </h1>
+
+                <!--
+                🔥 QUARTO FLEX-CONTAINER (Layout orizzontale)
+                Questo div è un FLEX-ITEM del card-content
+                MA diventa anche FLEX-CONTAINER per disporre
+                i due paragrafi affiancati (sinistra e destra)
+                -->
                 <div class="card-descriptions">
+
+                    <!-- FLEX-ITEM: Primo paragrafo (sinistra) -->
                     <p class="card-description-single">
                         Felix non era il gatto medio. Disprezzava i compromessi. La sua ciotola doveva contenere solo
                         salmone selvaggio pescato a mano; qualsiasi altra cosa era un'offesa personale. La sua "umana"
                         era la sua schiava personale, addestrata a soddisfare ogni suo regale capriccio felino.
                     </p>
+
+                    <!-- FLEX-ITEM: Secondo paragrafo (destra) -->
                     <p class="card-description-single">
                         Un giorno, la sua umana osò portare a casa un tiragraffi economico di cartone. Felix lo guardò
                         con orrore. Rifiutò di entrare in salotto per una settimana intera. Solo la rimozione del
                         cartone e l'installazione di un castello di cedro ripristinarono la pace.
                     </p>
+
                 </div>
             </div>
         </div>
