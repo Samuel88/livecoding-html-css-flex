@@ -8,15 +8,58 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <!--
+    ===============================================
+    STRUTTURA FLEXBOX - Esempio Pratico di Navigazione
+    ===============================================
+
+    Questa pagina dimostra l'uso di Flexbox in un contesto reale:
+    una barra di navigazione con logo e menu.
+
+    GERARCHIA FLEXBOX:
+    1. .navigation (FLEX-CONTAINER principale)
+       ├── .navigation-logo (FLEX-ITEM che diventa FLEX-CONTAINER)
+       │   ├── img (FLEX-ITEM)
+       │   └── h1 (FLEX-ITEM)
+       └── .navigation-links (FLEX-ITEM che diventa FLEX-CONTAINER)
+           ├── li (FLEX-ITEM)
+           ├── li (FLEX-ITEM)
+           └── li (FLEX-ITEM)
+    -->
     <header>
+        <!--
+        🔥 FLEX-CONTAINER PRINCIPALE
+        La classe .navigation ha display: flex quindi:
+        - I suoi figli diretti (<a> e <ul>) diventano FLEX-ITEMS
+        - justify-content: space-between li distribuisce agli estremi
+        -->
         <nav class="navigation">
+
+            <!--
+            🔥 FLEX-ITEM che diventa FLEX-CONTAINER
+            Questo <a> è un FLEX-ITEM del container .navigation
+            MA ha anche display: flex, quindi diventa un FLEX-CONTAINER
+            per i suoi figli (img e h1)
+            -->
             <a class="navigation-logo">
+                <!-- FLEX-ITEM: Immagine del logo -->
                 <img src="./imgs/cat.png" alt="Gatto Logo" class="navigation-logo-img">
+                <!-- FLEX-ITEM: Titolo del logo -->
                 <h1>Flex Cat</h1>
             </a>
+
+            <!--
+            🔥 FLEX-ITEM che diventa FLEX-CONTAINER
+            Questo <ul> è un FLEX-ITEM del container .navigation
+            MA ha anche display: flex, quindi diventa un FLEX-CONTAINER
+            per i suoi figli (tutti gli <li>)
+            -->
             <ul class="navigation-links">
+                <!-- FLEX-ITEM: Primo link di navigazione -->
                 <li><a class="navigation-link-single" href="">Flexbox Basics</a></li>
+                <!-- FLEX-ITEM: Secondo link di navigazione -->
                 <li><a class="navigation-link-single" href="">Grid Basics</a></li>
+                <!-- FLEX-ITEM: Terzo link di navigazione -->
                 <li><a class="navigation-link-single" href="">Positioning Basics</a></li>
             </ul>
         </nav>

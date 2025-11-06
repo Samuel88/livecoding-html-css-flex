@@ -1,33 +1,76 @@
+/* ===============================================
+   RESET CSS - Normalizzazione degli stili di base
+   =============================================== */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    /* box-sizing: border-box assicura che padding e border
+       siano inclusi nella larghezza/altezza totale dell'elemento */
+    box-sizing: border-box;
 }
 
+/* Rimuove i bullet point dalle liste */
 ul, li {
     list-style: none;
 }
 
+/* ===============================================
+   NAVIGATION CONTAINER - Primo Flex Container
+   =============================================== */
+
 .navigation {
     padding: 20px;
     background-color: aquamarine;
+
+    /* FLEXBOX: Trasforma questo elemento in un FLEX-CONTAINER
+       Tutti i figli diretti (<a> e <ul>) diventano automaticamente FLEX-ITEMS */
     display: flex;
+
+    /* JUSTIFY-CONTENT: Controlla la distribuzione lungo il MAIN AXIS (orizzontale)
+       space-between = primo elemento all'inizio, ultimo alla fine, spazio distribuito nel mezzo
+       Altri valori possibili: flex-start, flex-end, center, space-around */
     justify-content: space-between;
 }
 
+/* ===============================================
+   LOGO SECTION - Secondo Flex Container (Nested)
+   =============================================== */
+
 .navigation-logo {
-    align-items: center;
+    /* FLEXBOX: Anche questo diventa un FLEX-CONTAINER
+       I suoi figli diretti (<img> e <h1>) diventano FLEX-ITEMS */
     display: flex;
+
+    /* ALIGN-ITEMS: Controlla l'allineamento lungo il CROSS AXIS (verticale)
+       center = allinea tutti gli elementi al centro verticalmente
+       Altri valori: flex-start, flex-end, stretch, baseline */
+    align-items: center;
 }
 
+/* Stili per l'immagine del logo */
 .navigation-logo-img {
     width: 150px;
+    /* Rende l'immagine circolare */
     border-radius: 50%;
 }
 
+/* ===============================================
+   NAVIGATION LINKS - Terzo Flex Container (Nested)
+   =============================================== */
+
 .navigation-links {
+    /* FLEXBOX: Anche la lista di navigazione diventa un FLEX-CONTAINER
+       I suoi figli diretti (gli <li>) diventano FLEX-ITEMS */
     display: flex;
+
+    /* ALIGN-ITEMS: Allinea i link al centro verticalmente */
     align-items: center;
+
+    /* Occupa il 40% della larghezza disponibile */
     width: 40%;
+
+    /* JUSTIFY-CONTENT: Distribuisce i link equamente lungo il MAIN AXIS
+       space-between = primo link all'inizio, ultimo alla fine, spazio distribuito tra i link */
     justify-content: space-between;
 }
